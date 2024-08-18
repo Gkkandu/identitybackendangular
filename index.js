@@ -1,4 +1,4 @@
-process.env.NODE_NO_WARNINGS = true;
+//process.env.NODE_NO_WARNINGS = true;
 
 const express = require('express');
 const bodyParser = require('body-parser');
