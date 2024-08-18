@@ -11,7 +11,7 @@ app.use(cors());
 app.use(bodyParser.json());
 
 
-mongoose.connect('mongodb+srv://gk24014:Neeraj@cluster0.4vkgn.mongodb.net/angular?retryWrites=true&w=majority&appName=Cluster0', { useNewUrlParser: true, useUnifiedTopology: true });
+mongoose.connect('mongodb+srv://gk24014:Neeraj@cluster0.4vkgn.mongodb.net/angular?retryWrites=true&w=majority&appName=Cluster0');
 
 app.post("/users/register", (req, res) => {
   const { name, father, mother, gender, mobile, email, address } = req.body;
