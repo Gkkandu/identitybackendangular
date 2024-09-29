@@ -7,11 +7,24 @@ const mongoose = require('mongoose');
 const Identity = require('./model');
 
 const app = express();
-app.use(cors());
+
 app.use(bodyParser.json());
 
+app.use(cors({
+  origin: ['https://cheery-sorbet-e62cb8.netlify.app', 'https://all-exam-rrb-ntpc-typing-test.netlify.app'],
+  methods: ['GET', 'POST'], // List allowed methods
+  credentials: true, // Allow credentials like cookies if needed
+}));
 
-mongoose.connect('mongodb+srv://gk24014:Neeraj@cluster0.4vkgn.mongodb.net/angular?retryWrites=true&w=majority&appName=Cluster0');
+
+// Connect to MongoDB on Render.com
+mongoose.connect('mongodb+srv://gk24014:Neeraj@cluster0.4vkgn.mongodb.net/angular?retryWrites=true&w=majority&appName=Cluster0')
+  .then(() => {
+    console.log("Connected to MongoDB successfully");
+  })
+  .catch(err => {
+    console.error("Failed to connect to MongoDB:", err);
+  });
 
 app.post("/users/register", (req, res) => {
   const { name, father, mother, gender, mobile, email, address } = req.body;
