@@ -11,9 +11,10 @@ const app = express();
 app.use(bodyParser.json());
 
 app.use(cors({
-  origin: ['https://resturent-app-angular-crud.netlify.app/', 'https://resturent-app-angular-crud.netlify.app/register'],
-  methods: ['GET', 'POST'], // List allowed methods
-  credentials: true, // Allow credentials like cookies if needed
+  origin: ['https://resturent-app-angular-crud.netlify.app', 'https://identitybackendangular.onrender.com'], // Allow Netlify domain
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH'], // Allowed methods
+  allowedHeaders: ['Content-Type', 'Authorization'], // Headers allowed
+  credentials: true, // Allow credentials if needed
 }));
 
 
