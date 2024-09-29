@@ -11,10 +11,15 @@ const app = express();
 app.use(bodyParser.json());
 
 app.use(cors({
-  origin: 'https://resturent-app-angular-crud.netlify.app',
-  methods: ['GET', 'POST', 'PUT', 'DELETE'],
+  origin: ['https://resturent-app-angular-crud.netlify.app', 'http://localhost:4200'], // Add both allowed origins
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
   allowedHeaders: ['Content-Type', 'Authorization'],
+  credentials: true, // if you're using cookies
 }));
+app.use((err, req, res, next) => {
+  console.error('CORS error:', err);
+  res.status(500).json({ error: 'Internal Server Error' });
+});
 
 
 // Connect to MongoDB on Render.com
@@ -74,7 +79,7 @@ app.delete("/users/:id", async (req, res) => {
   }
 });
 
-const PORT = 3001;
+const PORT = 4200;
 app.listen(PORT, () => {
   console.log(`Server is running on http://localhost:${PORT}`);
 });
