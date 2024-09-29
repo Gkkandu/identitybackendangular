@@ -11,7 +11,7 @@ const app = express();
 app.use(bodyParser.json());
 
 app.use(cors({
-  origin: ['https://cheery-sorbet-e62cb8.netlify.app', 'https://all-exam-rrb-ntpc-typing-test.netlify.app'],
+  origin: ['https://resturent-app-angular-crud.netlify.app/', 'https://resturent-app-angular-crud.netlify.app/register'],
   methods: ['GET', 'POST'], // List allowed methods
   credentials: true, // Allow credentials like cookies if needed
 }));
