@@ -12,7 +12,7 @@ app.use(bodyParser.json());
 
 app.use(cors({
   origin: ['https://resturent-app-angular-crud.netlify.app', 'http://localhost:4200'], // Add both allowed origins
-  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+  methods: ['GET', 'POST', 'PATCH', 'DELETE', 'OPTIONS'],
   allowedHeaders: ['Content-Type', 'Authorization'],
   credentials: true, // if you're using cookies
 }));
